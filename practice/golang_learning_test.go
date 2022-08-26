@@ -106,9 +106,17 @@ func TestGolang(t *testing.T) {
 	})
 
 	t.Run("context value", func(t *testing.T) {
-		// context에 key, value를 추가해보세요.
-		// 추가된 key, value를 호출하여 assert로 값을 검증해보세요.
-		// 추가되지 않은 key에 대한 value를 assert로 검증해보세요.
+		key := "foo"
+		value := "bar"
+
+		ctx := context.Background()
+		ctx = context.WithValue(ctx, key, value)
+
+		actual := ctx.Value(key)
+		assert.Equal(t, value, actual)
+
+		emptyValue := ctx.Value("baz")
+		assert.Nil(t, emptyValue)
 	})
 }
 
