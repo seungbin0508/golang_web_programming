@@ -92,7 +92,8 @@ func TestGolang(t *testing.T) {
 	t.Run("context deadline", func(t *testing.T) {
 		startTime := time.Now()
 		add := time.Second * 3
-		ctx := context.TODO() // TODO 3초후에 종료하는 timeout context로 만들어주세요.
+		//goland:noinspection GoVetLostCancel
+		ctx, _ := context.WithDeadline(context.Background(), time.Now().Add(add))
 
 		var endTime time.Time
 		select {
