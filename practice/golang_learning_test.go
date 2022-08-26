@@ -3,6 +3,7 @@ package practice
 import (
 	"context"
 	"github.com/stretchr/testify/assert"
+	"strings"
 	"testing"
 	"time"
 )
@@ -10,10 +11,10 @@ import (
 // golang 학습 테스트
 func TestGolang(t *testing.T) {
 	t.Run("string test", func(t *testing.T) {
-		//str := "Ann,Jenny,Tom,Zico"
-		//actual := "" // TODO str을 , 단위로 잘라주세요.
-		//expected := []string{"Ann","Jenny","Tom","Zico"}
-		//TODO assert 문을 활용해 actual과 expected를 비교해주세요.
+		str := "Ann,Jenny,Tom,Zico"
+		actual := strings.Split(str, ",")
+		expected := []string{"Ann", "Jenny", "Tom", "Zico"}
+		assert.Equal(t, expected, actual)
 	})
 
 	t.Run("goroutine에서 slice에 값 추가해보기", func(t *testing.T) {
