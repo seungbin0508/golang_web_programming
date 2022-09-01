@@ -19,7 +19,7 @@ func TestGolang(t *testing.T) {
 	})
 
 	t.Run("goroutine에서 slice에 값 추가해보기", func(t *testing.T) {
-		const SIZE int = 100
+		const size int = 100
 		var numbers []int
 		var wg sync.WaitGroup
 		ch := make(chan int)
